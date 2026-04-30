@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thai Quoc Khuong – CV</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f2ee;
+    --surface: #ffffff;
+    --accent: #1a3a5c;
+    --accent2: #2e6da4;
+    --accent-light: #e8f0f8;
+    --text: #1c1c1c;
+    --text-muted: #5a6470;
+    --border: #d8d2c8;
+    --tag-bg: #dce8f3;
+    --tag-text: #1a3a5c;
+    --highlight: #2e6da4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Language Toggle */
+  .lang-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    background: var(--accent);
+    border-radius: 30px;
+    padding: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  .lang-btn {
+    padding: 6px 18px;
+    border: none;
+    border-radius: 26px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    transition: all 0.25s ease;
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+  }
+  .lang-btn.active {
+    background: #fff;
+    color: var(--accent);
+  }
+
+  /* Print button */
+  .print-btn {
+    position: fixed;
+    top: 20px;
+    right: 120px;
+    z-index: 1000;
+    padding: 8px 18px;
+    background: var(--accent2);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: 0.2s;
+  }
+  .print-btn:hover { background: var(--accent); }
+
+  /* Lang content */
+  [data-lang] { display: none; }
+  body.lang-en [data-lang="en"],
+  body.lang-vi [data-lang="vi"] { display: contents; }
+
+  /* Wrapper */
+  .cv-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    background: var(--surface);
+    box-shadow: 0 8px 60px rgba(0,0,0,0.12);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  /* Header */
+  .cv-header {
+    background: var(--accent);
+    color: white;
+    padding: 44px 48px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cv-header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .cv-header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 200px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+  }
+  .header-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.3);
+    object-fit: cover;
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: rgba(255,255,255,0.5);
+  }
+  .header-info { flex: 1; }
+  .header-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 18px;
+  }
+  .header-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.85);
+  }
+  .header-contacts span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .contact-icon { font-size: 13px; }
+
+  /* Body */
+  .cv-body {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0;
+  }
+
+  /* Sidebar */
+  .cv-sidebar {
+    background: #f8f6f2;
+    padding: 36px 28px;
+    border-right: 1px solid var(--border);
+  }
+
+  /* Main */
+  .cv-main {
+    padding: 36px 40px;
+  }
+
+  /* Section */
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 14px;
+    padding-bottom: 7px;
+    border-bottom: 2px solid var(--accent-light);
+  }
+
+  /* Summary */
+  .summary-text {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  /* Sidebar sections */
+  .sidebar-section { margin-bottom: 28px; }
+  .sidebar-section-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 12px;
+    padding-bottom: 7px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  /* Certs */
+  .cert-item {
+    margin-bottom: 10px;
+  }
+  .cert-badge {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 2px;
+  }
+  .cert-year {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .cert-name {
+    font-size: 12px;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  /* Skills */
+  .skill-row {
+    margin-bottom: 10px;
+  }
+  .skill-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 3px;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .skill-tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-size: 10.5px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  /* Tools */
+  .tool-item {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+  .tool-star { color: var(--accent2); flex-shrink: 0; }
+
+  /* Education */
+  .edu-item { margin-bottom: 12px; }
+  .edu-school { font-size: 12px; font-weight: 600; color: var(--text); }
+  .edu-degree { font-size: 11.5px; color: var(--text-muted); }
+  .edu-year { font-size: 11px; color: var(--accent2); font-weight: 500; }
+
+  /* Languages */
+  .lang-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12.5px;
+    margin-bottom: 6px;
+  }
+  .lang-level {
+    color: var(--text-muted);
+    font-size: 11.5px;
+  }
+
+  /* Experience */
+  .exp-item {
+    margin-bottom: 26px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .exp-role {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .exp-date {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent2);
+    background: var(--accent-light);
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .exp-company {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--accent2);
+    margin-bottom: 6px;
+  }
+  .exp-desc {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .exp-category {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 10px 0 6px;
+  }
+
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+  }
+  .bullet-list li {
+    position: relative;
+    padding-left: 14px;
+    font-size: 12.5px;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.55;
+  }
+  .bullet-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent2);
+    font-weight: 700;
+  }
+  .bullet-list li strong { font-weight: 600; }
+  .metric {
+    color: var(--highlight);
+    font-weight: 600;
+  }
+
+  /* Awards banner */
+  .awards-banner {
+    background: linear-gradient(135deg, var(--accent-light), #dce8f3);
+    border-left: 3px solid var(--accent2);
+    padding: 10px 14px;
+    border-radius: 0 4px 4px 0;
+    font-size: 12px;
+    color: var(--accent);
+    margin-top: 10px;
+  }
+  .awards-banner strong { font-weight: 700; }
+
+  /* Key Strengths */
+  .strengths-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .strength-card {
+    background: var(--accent-light);
+    padding: 12px 14px;
+    border-radius: 4px;
+    border-left: 3px solid var(--accent2);
+  }
+  .strength-card.full { grid-column: 1 / -1; }
+  .strength-title {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 3px;
+  }
+  .strength-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  /* Projects */
+  .project-item {
+    margin-bottom: 18px;
+    padding: 14px;
+    background: var(--accent-light);
+    border-radius: 6px;
+    border-left: 3px solid var(--accent2);
+  }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+  }
+  .project-name { font-weight: 700; font-size: 13px; color: var(--accent); }
+  .project-date { font-size: 11px; color: var(--text-muted); }
+  .project-role { font-size: 11px; color: var(--accent2); font-weight: 600; margin-bottom: 6px; }
+  .project-list {
+    list-style: none;
+    padding: 0;
+  }
+  .project-list li {
+    position: relative;
+    padding-left: 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+  .project-list li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent2);
+    font-weight: 700;
+  }
+
+  @media print {
+    .lang-toggle, .print-btn { display: none; }
+    body { background: white; }
+    .cv-wrapper { box-shadow: none; margin: 0; max-width: 100%; }
+  }
+
+  @media (max-width: 680px) {
+    .cv-body { grid-template-columns: 1fr; }
+    .cv-sidebar { border-right: none; border-bottom: 1px solid var(--border); }
+    .strengths-grid { grid-template-columns: 1fr; }
+    .lang-toggle { top: 10px; right: 10px; }
+    .print-btn { display: none; }
+    .cv-header { padding: 28px 24px; }
+    .header-name { font-size: 28px; }
+  }
+</style>
+</head>
+<body class="lang-en">
+
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('vi')">VI</button>
+</div>
+<button class="print-btn" onclick="window.print()">⬇ Save PDF</button>
+
+<div class="cv-wrapper">
+
+  <!-- HEADER -->
+  <div class="cv-header">
+    <div class="header-top">
+      <div class="header-photo">👤</div>
+      <div class="header-info">
+        <div class="header-name">Thai Quoc Khuong</div>
+        <div class="header-title">
+          <span data-lang="en">Network Manager · Senior Network Engineer</span>
+          <span data-lang="vi">Trưởng bộ phận Mạng · Kỹ sư Mạng Cao cấp</span>
+        </div>
+        <div class="header-contacts">
+          <span><span class="contact-icon">📞</span> 0945.192.199</span>
+          <span><span class="contact-icon">✉</span> tqkhuong261@gmail.com</span>
+          <span><span class="contact-icon">🔗</span> linkedin.com/in/khuong-thai-77a56b158</span>
+          <span><span class="contact-icon">📍</span>
+            <span data-lang="en">Phu Thuan Ward, HCMC, Vietnam</span>
+            <span data-lang="vi">Phường Phú Thuận, TP.HCM</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-body">
+
+    <!-- SIDEBAR -->
+    <div class="cv-sidebar">
+
+      <!-- Summary -->
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">
+          <span data-lang="en">Professional Summary</span>
+          <span data-lang="vi">Tóm tắt chuyên môn</span>
+        </div>
+        <div style="font-size:12.5px; color:var(--text-muted); line-height:1.65;">
+          <span data-lang="en">
+            Senior Network Expert (JNCIE-SP #3285) with 15+ years in operating, deploying and modernizing IP Core/Metro networks across ISPs and system integrators. Hands-on NetDevOps expertise with Python & Ansible. ITIL-based operations with practical automation models.
+          </span>
+          <span data-lang="vi">
+            Chuyên gia mạng cao cấp (JNCIE-SP #3285) với hơn 15 năm kinh nghiệm vận hành, triển khai và hiện đại hóa hệ thống IP Core và Metro tại các ISP và đơn vị tích hợp hệ thống. Kinh nghiệm thực tế về NetDevOps với Python & Ansible. Vận hành theo quy trình ITIL với mô hình tự động hóa thực tiễn.
+          </span>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">
+          <span data-lang="en">Certifications</span>
+          <span data-lang="vi">Chứng chỉ</span>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-year">2025–2026</div>
+          <div><span class="cert-badge">ACP-CA|SW|NS</span></div>
+          <div class="cert-name">Aruba Certified Professional – Campus Access | Switching | Network Security</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-year">2025</div>
+          <div><span class="cert-badge">JNCIE-SP #3285</span></div>
+          <div class="cert-name">Juniper Networks Certified Expert, Service Provider</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-year">2025</div>
+          <div><span class="cert-badge">PCNSE</span></div>
+          <div class="cert-name">Palo Alto Networks Certified Network Security Engineer</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-year">2021</div>
+          <div><span class="cert-badge">DEVASC</span></div>
+          <div class="cert-name">Cisco Certified DevNet Associate</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-year">2020</div>
+          <div><span class="cert-badge">JNCIP-SP</span></div>
+          <div class="cert-name">Service Provider Routing & Switching, Professional</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-year">2019</div>
+          <div><span class="cert-badge">JNCIP-ENT</span></div>
+          <div class="cert-name">Enterprise Routing & Switching, Professional</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-year">2015</div>
+          <div><span class="cert-badge">ITIL Foundation</span></div>
+          <div class="cert-name">IT Infrastructure Library, 2011 Foundation</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-year">2008</div>
+          <div><span class="cert-badge">CCNA</span></div>
+          <div class="cert-name">Cisco Certified Network Associate</div>
+        </div>
+      </div>
+
+      <!-- Technical Skills -->
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">
+          <span data-lang="en">Technical Skills</span>
+          <span data-lang="vi">Kỹ năng kỹ thuật</span>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Network / Core</div>
+          <div class="skill-tags">
+            <span class="skill-tag">IP/MPLS</span>
+            <span class="skill-tag">BGP</span>
+            <span class="skill-tag">IS-IS</span>
+            <span class="skill-tag">OSPF</span>
+            <span class="skill-tag">L2/L3VPN</span>
+            <span class="skill-tag">Metro-E</span>
+            <span class="skill-tag">BNG/BRAS</span>
+            <span class="skill-tag">SIP Trunk</span>
+            <span class="skill-tag">VoIP</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Vendors</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Juniper MX/EX/SRX</span>
+            <span class="skill-tag">Cisco IOS-XR</span>
+            <span class="skill-tag">Huawei NE</span>
+            <span class="skill-tag">HPE Aruba</span>
+            <span class="skill-tag">Palo Alto</span>
+            <span class="skill-tag">ALU 7750</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">
+            <span data-lang="en">Automation / DevOps</span>
+            <span data-lang="vi">Tự động hóa / DevOps</span>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Ansible</span>
+            <span class="skill-tag">ZTP</span>
+            <span class="skill-tag">NetDevOps</span>
+            <span class="skill-tag">NETCONF</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">
+            <span data-lang="en">Frameworks / Ops</span>
+            <span data-lang="vi">Quy trình / Vận hành</span>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">ITIL / ITSM</span>
+            <span class="skill-tag">KPI/SLA</span>
+            <span class="skill-tag">PRTG</span>
+            <span class="skill-tag">OpenVPN</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">AI / Digital</div>
+          <div class="skill-tags">
+            <span class="skill-tag">AI Chatbot</span>
+            <span class="skill-tag">ML Integration</span>
+            <span class="skill-tag">Dashboard Design</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">
+          <span data-lang="en">Education</span>
+          <span data-lang="vi">Học vấn</span>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">
+            <span data-lang="en">Posts & Telecommunications Institute of Technology (PTIT)</span>
+            <span data-lang="vi">Học viện Công nghệ Bưu chính Viễn thông</span>
+          </div>
+          <div class="edu-year">2010 – 2014</div>
+          <div class="edu-degree">
+            <span data-lang="en">Master's – Electronics Engineering</span>
+            <span data-lang="vi">Thạc sỹ Điện – Điện tử</span>
+          </div>
+          <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">
+            <em>
+              <span data-lang="en">Thesis: Design of a 2.4GHz Low Noise Amplifier (LNA)</span>
+              <span data-lang="vi">Luận văn: Thiết kế bộ LNA cho tần số 2.4GHz</span>
+            </em>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">
+            <span data-lang="en">Posts & Telecommunications Institute of Technology (PTIT)</span>
+            <span data-lang="vi">Học viện Công nghệ Bưu chính Viễn thông</span>
+          </div>
+          <div class="edu-year">2005 – 2009</div>
+          <div class="edu-degree">
+            <span data-lang="en">Bachelor's – Telecommunications Engineering</span>
+            <span data-lang="vi">Kỹ sư Điện tử Viễn thông</span>
+          </div>
+          <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">
+            <em>
+              <span data-lang="en">Thesis: Routing in GMPLS Networks</span>
+              <span data-lang="vi">Luận văn: Định tuyến trong GMPLS</span>
+            </em>
+          </div>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">
+          <span data-lang="en">Languages</span>
+          <span data-lang="vi">Ngôn ngữ</span>
+        </div>
+        <div class="lang-item">
+          <span>
+            <span data-lang="en">Vietnamese</span>
+            <span data-lang="vi">Tiếng Việt</span>
+          </span>
+          <span class="lang-level">
+            <span data-lang="en">Native</span>
+            <span data-lang="vi">Bản ngữ</span>
+          </span>
+        </div>
+        <div class="lang-item">
+          <span>
+            <span data-lang="en">English</span>
+            <span data-lang="vi">Tiếng Anh</span>
+          </span>
+          <span class="lang-level">
+            <span data-lang="en">Professional</span>
+            <span data-lang="vi">Chuyên nghiệp</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Interests -->
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">
+          <span data-lang="en">Interests</span>
+          <span data-lang="vi">Sở thích</span>
+        </div>
+        <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">
+          <span data-lang="en">Technical training & knowledge sharing · Reading technology blogs & forums · Football · Music · Books</span>
+          <span data-lang="vi">Đào tạo & chia sẻ kiến thức · Đọc blog & diễn đàn công nghệ · Đá bóng · Nghe nhạc · Đọc sách</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="cv-main">
+
+      <!-- Career Objective -->
+      <div class="section">
+        <div class="section-title">
+          <span data-lang="en">Career Objective</span>
+          <span data-lang="vi">Mục tiêu nghề nghiệp</span>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span data-lang="en">Contribute hands-on experience in operating and modernizing IP Core / Metro / Access networks to ensure stable, scalable, and future-ready infrastructure.</span>
+            <span data-lang="vi">Đóng góp kinh nghiệm thực tiễn trong vận hành và hiện đại hóa mạng IP Core/Metro/Access nhằm đảm bảo hạ tầng mạng ổn định, mở rộng linh hoạt và sẵn sàng cho các yêu cầu trong tương lai.</span>
+          </li>
+          <li>
+            <span data-lang="en">Participate in network transformation initiatives, focusing on automation, operational efficiency, and service quality improvement.</span>
+            <span data-lang="vi">Hướng đến tham gia các hoạt động chuyển đổi mạng lưới, tập trung vào tự động hóa, tối ưu vận hành và nâng cao chất lượng dịch vụ.</span>
+          </li>
+          <li>
+            <span data-lang="en">Facilitate collaboration between engineering and development teams, promote knowledge sharing, internal training, and standardized operational processes for continuous improvement.</span>
+            <span data-lang="vi">Kết nối giữa các nhóm kỹ sư (Engineer) và phát triển (Dev), thúc đẩy chia sẻ kiến thức, đào tạo nội bộ và xây dựng quy trình vận hành chuẩn hoá, hướng tới cải tiến liên tục.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Key Strengths -->
+      <div class="section">
+        <div class="section-title">
+          <span data-lang="en">Key Strengths</span>
+          <span data-lang="vi">Điểm mạnh nổi bật</span>
+        </div>
+        <div class="strengths-grid">
+          <div class="strength-card full">
+            <div class="strength-title">
+              <span data-lang="en">🔌 IP Core & Metro Mastery</span>
+              <span data-lang="vi">🔌 Chuyên sâu IP Core & Metro</span>
+            </div>
+            <div class="strength-desc">
+              <span data-lang="en">End-to-end operations across IP Core (VN2), Metro-E, BNG/BRAS, xDSL/FTTx — 22 provinces, 2M+ subscribers. Multi-vendor expertise: Juniper, Cisco, Huawei, ALU, HPE Aruba.</span>
+              <span data-lang="vi">Vận hành toàn diện IP Core (VN2), Metro-E, BNG/BRAS, xDSL/FTTx — 22 tỉnh thành, 2M+ thuê bao. Kinh nghiệm đa vendor: Juniper, Cisco, Huawei, ALU, HPE Aruba.</span>
+            </div>
+          </div>
+          <div class="strength-card">
+            <div class="strength-title">
+              <span data-lang="en">⚙️ NetDevOps & Automation</span>
+              <span data-lang="vi">⚙️ NetDevOps & Tự động hóa</span>
+            </div>
+            <div class="strength-desc">
+              <span data-lang="en">Python, Ansible, ZTP. In-house tools for provisioning, backup, analytics.</span>
+              <span data-lang="vi">Python, Ansible, ZTP. Công cụ nội bộ cho provisioning, backup, phân tích dữ liệu.</span>
+            </div>
+          </div>
+          <div class="strength-card">
+            <div class="strength-title">
+              <span data-lang="en">🤝 Team Leadership</span>
+              <span data-lang="vi">🤝 Lãnh đạo nhóm</span>
+            </div>
+            <div class="strength-desc">
+              <span data-lang="en">Cross-functional team lead (Network, System, Dev). Knowledge sharing & internal training culture.</span>
+              <span data-lang="vi">Dẫn dắt đội liên ngành (Network, System, Dev). Xây dựng văn hóa chia sẻ kiến thức & đào tạo.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Professional Experience -->
+      <div class="section">
+        <div class="section-title">
+          <span data-lang="en">Professional Experience</span>
+          <span data-lang="vi">Kinh nghiệm làm việc</span>
+        </div>
+
+        <!-- AITC -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">
+              <span data-lang="en">Technical Manager</span>
+              <span data-lang="vi">Trưởng bộ phận Kỹ thuật</span>
+            </div>
+            <div class="exp-date">2025 – Present</div>
+          </div>
+          <div class="exp-company">AITC (Asian Information & Technology Center)</div>
+          <div class="exp-desc">
+            <span data-lang="en">Led cross-functional engineering team (Network, System, Dev), focusing on HPE Aruba Networking solutions.</span>
+            <span data-lang="vi">Dẫn dắt đội ngũ kỹ sư liên ngành (Network, System, Dev), tập trung vào giải pháp HPE Aruba Networking.</span>
+          </div>
+
+          <div class="exp-category">
+            <span data-lang="en">Team Leadership & Standards</span>
+            <span data-lang="vi">Lãnh đạo nhóm & Chuẩn hóa</span>
+          </div>
+          <ul class="bullet-list">
+            <li>
+              <span data-lang="en"><strong>HPE Aruba PBS Standards:</strong> Managed and executed projects following HPE Aruba Partner Branch Support (PBS) standards, ensuring highest service quality for enterprise and managed services customers.</span>
+              <span data-lang="vi"><strong>Chuẩn HPE Aruba PBS:</strong> Trực tiếp quản lý và thực thi dự án theo tiêu chuẩn Partner của HPE Aruba (PBS), đảm bảo chất lượng dịch vụ cao nhất cho khách hàng doanh nghiệp và Managed Services.</span>
+            </li>
+          </ul>
+
+          <div class="exp-category">
+            <span data-lang="en">NetDevOps & AI Innovation</span>
+            <span data-lang="vi">NetDevOps & AI Innovation</span>
+          </div>
+          <ul class="bullet-list">
+            <li>
+              <span data-lang="en"><strong>AI Chatbot:</strong> Collaborated with dev team to build an AI-powered assistant for technical/operational information lookup, integrating AI/ML into network operations.</span>
+              <span data-lang="vi"><strong>ChatbotAI:</strong> Đồng hành cùng đội Dev xây dựng trợ lý AI hỗ trợ tra cứu thông tin kỹ thuật/vận hành, định hướng ứng dụng AI/ML vào mạng lưới.</span>
+            </li>
+            <li>
+              <span data-lang="en"><strong>Network Dashboard:</strong> Built centralized monitoring and visualization interface for network infrastructure data.</span>
+              <span data-lang="vi"><strong>Dashboard quản trị thiết bị:</strong> Xây dựng giao diện quản trị tập trung, số hoá năng lực mạng lưới và trực quan hoá dữ liệu hạ tầng.</span>
+            </li>
+            <li>
+              <span data-lang="en"><strong>QR Code Event Solution:</strong> Digitalized check-in and access control processes for events.</span>
+              <span data-lang="vi"><strong>QR Code Event:</strong> Giải pháp số hoá quy trình Check-in và Quản lý truy cập tại các Sự kiện.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- CMC Telecom -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">
+              <span data-lang="en">Managed Services Team Leader</span>
+              <span data-lang="vi">Trưởng nhóm Quản lý Dịch vụ</span>
+            </div>
+            <div class="exp-date">2023 – 2025</div>
+          </div>
+          <div class="exp-company">CMC Telecom</div>
+          <div class="exp-desc">
+            <span data-lang="en">Led onsite operations for Long Son Petrochemicals (LSP) – end-to-end network, system and data center management.</span>
+            <span data-lang="vi">Điều hành đội ngũ Onsite toàn diện cho Tổ hợp hóa dầu Long Sơn (LSP) – vận hành mạng, hệ thống và data center.</span>
+          </div>
+          <ul class="bullet-list">
+            <li>
+              <span data-lang="en"><strong>Large-scale Enterprise Network:</strong> Operated <span class="metric">300+ APs</span> (indoor/outdoor), <span class="metric">90+ Cisco devices</span> (switches/routers), firewalls, load balancers, and full system infrastructure (vCenter, VMs, AD/DNS/DHCP, DCIM/CCTV).</span>
+              <span data-lang="vi"><strong>Mạng doanh nghiệp quy mô lớn:</strong> Vận hành <span class="metric">300+ APs</span>, <span class="metric">90+ thiết bị Cisco</span>, Firewall, Load Balancer, vCenter/VMs, AD/DNS/DHCP, DCIM/CCTV.</span>
+            </li>
+            <li>
+              <span data-lang="en"><strong>ITSM/ITIL Operations:</strong> Handled incidents and service requests through Service Desk, strictly adhering to KPIs and SLAs.</span>
+              <span data-lang="vi"><strong>Vận hành ITSM/ITIL:</strong> Tiếp nhận, điều phối và xử lý sự cố qua ServiceDesk, tuân thủ nghiêm ngặt KPIs/SLA.</span>
+            </li>
+            <li>
+              <span data-lang="en"><strong>SCG International Reporting:</strong> Prepared periodic reports aligned with SCG (Thailand) global operational standards, ensuring transparency.</span>
+              <span data-lang="vi"><strong>Báo cáo chuẩn Quốc tế SCG:</strong> Thực hiện báo cáo định kỳ trên hệ thống quản trị chuẩn hoá của Tập đoàn SCG (Thái Lan), đảm bảo minh bạch và đồng bộ tiêu chuẩn toàn cầu.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- SVTECH -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">
+              <span data-lang="en">Senior Network Engineer</span>
+              <span data-lang="vi">Kỹ sư mạng cấp cao</span>
+            </div>
+            <div class="exp-date">2019 – 2023</div>
+          </div>
+          <div class="exp-company">SVTECH JSC</div>
+          <div class="exp-desc">
+            <span data-lang="en">L3 technical expert for major Vietnamese ISPs and enterprises. Juniper TAC liaison.</span>
+            <span data-lang="vi">Chuyên gia kỹ thuật L3 cho các nhà mạng lớn và khách hàng doanh nghiệp. Đại diện kỹ thuật với Juniper TAC.</span>
+          </div>
+          <ul class="bullet-list">
+            <li>
+              <span data-lang="en"><strong>L3 Technical Support:</strong> Resolved critical issues in IP Core and Metro networks for major ISPs (VNPT, Viettel, FPT, MobiFone, CMC) and enterprise customers (VNG, QTSC).</span>
+              <span data-lang="vi"><strong>Hỗ trợ kỹ thuật L3:</strong> Xử lý lỗi trọng yếu trên mạng lõi và tư vấn giải pháp cho các nhà mạng lớn (VNPT, Viettel, FPT, MobiFone, CMC) và khách hàng doanh nghiệp (VNG, QTSC).</span>
+            </li>
+            <li>
+              <span data-lang="en"><strong>Automation:</strong> Deployed Zero-Touch Deployment (ZTP) for EX switches at Viettel IDC; Ansible-based tools for configuration collection at VietsoPetro.</span>
+              <span data-lang="vi"><strong>Tự động hóa:</strong> Triển khai ZeroTouch-Deploy cho hệ thống EX-Switch tại Viettel-IDC; Ansible cho thu thập cấu hình/Site Survey tại VietsoPetro.</span>
+            </li>
+            <li>
+              <span data-lang="en"><strong>VNPT Metro Modernization (2020):</strong> Migrated 5 provinces from Huawei (NE40E/X8A) to Juniper (MX960/MX2020) for next-gen service readiness.</span>
+              <span data-lang="vi"><strong>Hiện đại hóa Metro VNPT (2020):</strong> Chuyển đổi thiết bị 5 Tỉnh/TP từ Huawei (NE-40E/X8A) sang Juniper (MX960/MX2020).</span>
+            </li>
+            <li>
+              <span data-lang="en"><strong>QTSC Route Reflector Swap (2021):</strong> Replaced core RR pair from Cisco 7606 to Juniper MX960 with zero service disruption.</span>
+              <span data-lang="vi"><strong>Swap RR QTSC (2021):</strong> Thay thế cặp Route Reflector từ Cisco 7606 sang Juniper MX960, đảm bảo ổn định và hiệu suất cao.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- VNPT-NET -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">
+              <span data-lang="en">Team Leader (SOC2 & RNOC2)</span>
+              <span data-lang="vi">Trưởng nhóm Dịch vụ (SOC2 & RNOC2)</span>
+            </div>
+            <div class="exp-date">2015 – 2019</div>
+          </div>
+          <div class="exp-company">VNPT-Net Corporation</div>
+          <ul class="bullet-list">
+            <li>
+              <span data-lang="en">Deployed SIP Trunk, VoIP, CDN, Internet Leased Line for VNPT customers across Southern Vietnam.</span>
+              <span data-lang="vi">Triển khai dịch vụ SIP trunk, VoIP, CDN, Internet Lease Line cho khách hàng VNPT khu vực miền Nam.</span>
+            </li>
+            <li>
+              <span data-lang="en">Operated and troubleshot MPLS-based VPN services for enterprise customers.</span>
+              <span data-lang="vi">Vận hành và xử lý lỗi dịch vụ VPN trên nền IP/MPLS cho khách hàng doanh nghiệp.</span>
+            </li>
+            <li>
+              <span data-lang="en"><strong>BRAS Provisioning Tool:</strong> Built standardized configuration tool for BRAS pool provisioning on Juniper E320, reducing manual errors.</span>
+              <span data-lang="vi"><strong>BRAS Provisioning Tool:</strong> Công cụ chuẩn hoá cấu hình khai báo Pool BRAS trên Juniper E320, giảm thiểu sai sót thủ công.</span>
+            </li>
+            <li>
+              <span data-lang="en"><strong>Remote Access Platform (2019):</strong> Built web-based solution enabling secure remote access to network devices via OpenVPN for provincial telecom teams.</span>
+              <span data-lang="vi"><strong>Website Remote Access (2019):</strong> Hỗ trợ truy cập từ xa thiết bị trạm qua OpenVPN cho các Viễn thông tỉnh/thành.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- VTN -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">
+              <span data-lang="en">IP Core Network Engineer</span>
+              <span data-lang="vi">Kỹ sư mạng IP Core</span>
+            </div>
+            <div class="exp-date">2010 – 2015</div>
+          </div>
+          <div class="exp-company">
+            <span data-lang="en">VietNam Telecom National (VTN)</span>
+            <span data-lang="vi">Công ty Viễn thông Liên tỉnh (VTN)</span>
+          </div>
+          <ul class="bullet-list">
+            <li>
+              <span data-lang="en">Configured and operated Metro-Routers (Cisco 7606/7609, Huawei NE40E/80E) and IP Core VN2 (Juniper MX960, T1600, E320; ALU 7750) across <span class="metric">22 provinces</span> in Southern Vietnam.</span>
+              <span data-lang="vi">Vận hành Metro-Routers (Cisco 7606/7609, Huawei NE-40E/80E) và mạng lõi VN2 (Juniper MX960, T1600, E320; ALU 7750) tại <span class="metric">22 tỉnh/thành</span> khu vực phía Nam.</span>
+            </li>
+            <li>
+              <span data-lang="en">Delivered and maintained large-scale Internet services (xDSL, FTTx, Leased Line) and MPLS-based VPN services.</span>
+              <span data-lang="vi">Cung cấp và duy trì ổn định dịch vụ Internet xDSL, FTTx, Leased Line và VPN trên IP/MPLS.</span>
+            </li>
+            <li>
+              <span data-lang="en"><strong>Auto-Backup System:</strong> Automated periodic configuration backup for VN2 core and Metro (ManE) networks.</span>
+              <span data-lang="vi"><strong>Hệ thống Auto-Backup:</strong> Tự động hóa sao lưu cấu hình định kỳ cho toàn bộ hệ thống lõi VN2 và Metro (ManE).</span>
+            </li>
+            <li>
+              <span data-lang="en"><strong>Network Data Analytics:</strong> Developed tools to collect and analyze customer/transmission data (MGW, MTN) from Juniper MX960 and ALU 7750.</span>
+              <span data-lang="vi"><strong>Network Data Analytics:</strong> Phát triển công cụ thống kê dữ liệu khách hàng và kênh truyền (MGW, MTN) trực tiếp từ Juniper MX960 & ALU 7750.</span>
+            </li>
+            <li>
+              <span data-lang="en">Deployed enterprise Leased Line for major customers: Coca-Cola, TMA, SCTV, Vietnam National University – HCMC.</span>
+              <span data-lang="vi">Triển khai Internet Leased Line cho các đối tác lớn: CocaCola, TMA, SCTV, Đại học Quốc gia TPHCM.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Key Projects -->
+      <div class="section">
+        <div class="section-title">
+          <span data-lang="en">Key Projects</span>
+          <span data-lang="vi">Dự án tiêu biểu</span>
+        </div>
+
+        <div class="project-item">
+          <div class="project-header">
+            <div class="project-name">Insight Web for HPE InstantOn</div>
+            <div class="project-date">2/2026 – Present</div>
+          </div>
+          <div class="project-role">
+            <span data-lang="en">Technical Lead & Architecture</span>
+            <span data-lang="vi">Kỹ thuật trưởng & Kiến trúc sư</span>
+          </div>
+          <ul class="project-list">
+            <li>
+              <span data-lang="en">Translated business requirements into practical network architecture and technical solutions.</span>
+              <span data-lang="vi">Chuyển hóa yêu cầu kinh doanh thành kiến trúc mạng và giải pháp kỹ thuật thực tiễn.</span>
+            </li>
+            <li>
+              <span data-lang="en">Designed centralized management system with hierarchical Zones/Sites/Devices database model.</span>
+              <span data-lang="vi">Thiết kế hệ thống quản lý tập trung theo mô hình phân cấp Zones/Sites/Devices.</span>
+            </li>
+            <li>
+              <span data-lang="en">Developed intelligent configuration Templates enabling ZTP (Zero-Touch Provisioning) at scale.</span>
+              <span data-lang="vi">Phát triển Templates cấu hình thông minh, hỗ trợ ZTP triển khai quy mô lớn.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="project-item">
+          <div class="project-header">
+            <div class="project-name">
+              <span data-lang="en">AI Chatbot for Water Supply Company</span>
+              <span data-lang="vi">AI Chatbot cho Công ty Cấp nước</span>
+            </div>
+            <div class="project-date">5/2025 – 9/2025</div>
+          </div>
+          <div class="project-role">
+            <span data-lang="en">Business Analyst & Project Manager</span>
+            <span data-lang="vi">Business Analyst & Quản lý dự án</span>
+          </div>
+          <ul class="project-list">
+            <li>
+              <span data-lang="en">Analyzed business requirements and developed chatbot scenarios for customer information and service inquiries.</span>
+              <span data-lang="vi">Phân tích yêu cầu nghiệp vụ và xây dựng kịch bản chatbot cho tra cứu thông tin và dịch vụ khách hàng.</span>
+            </li>
+            <li>
+              <span data-lang="en">Coordinated deployment integrated with internal data systems. Managed project timelines across technical and business teams.</span>
+              <span data-lang="vi">Điều phối triển khai tích hợp với hệ thống dữ liệu nội bộ. Quản lý tiến độ dự án giữa nhóm kỹ thuật và kinh doanh.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- end cv-main -->
+  </div><!-- end cv-body -->
+</div>
+
+<script>
+  function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+    });
+    document.documentElement.lang = lang;
+  }
+</script>
+</body>
+</html>
