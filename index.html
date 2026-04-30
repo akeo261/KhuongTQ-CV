@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thai Quoc Khuong – CV Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2330;
+    --accent: #2f81f7;
+    --accent2: #58a6ff;
+    --accent-glow: rgba(47,129,247,0.15);
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --border: #30363d;
+    --tag-bg: rgba(47,129,247,0.12);
+    --tag-text: #58a6ff;
+    --green: #3fb950;
+    --card-hover: #1f2937;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Background grid ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(47,129,247,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(47,129,247,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Glow orb ── */
+  .glow-orb {
+    position: fixed;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(ellipse, rgba(47,129,247,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Lang toggle ── */
+  .lang-toggle {
+    position: fixed;
+    top: 20px; right: 20px;
+    z-index: 100;
+    display: flex;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 3px;
+  }
+  .lang-btn {
+    padding: 5px 16px;
+    border: none;
+    border-radius: 26px;
+    cursor: pointer;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    transition: all 0.2s;
+    background: transparent;
+    color: var(--text-muted);
+  }
+  .lang-btn.active {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  /* ── Wrapper ── */
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 80px 24px 80px;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    margin-bottom: 72px;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--tag-bg);
+    border: 1px solid rgba(47,129,247,0.2);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent2);
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+  }
+  .dot-live {
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .hero-name {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(40px, 7vw, 68px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.0;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #e6edf3 30%, #58a6ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-title {
+    font-size: 14px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .hero-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .hero-tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    color: var(--text-muted);
+  }
+
+  .hero-contacts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+  .hero-contacts a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .hero-contacts a:hover { color: var(--accent2); }
+
+  /* ── Section label ── */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── CV Grid ── */
+  .cv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  /* ── CV Card ── */
+  .cv-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.7s ease both;
+  }
+  .cv-card:nth-child(1) { animation-delay: 0.1s; }
+  .cv-card:nth-child(2) { animation-delay: 0.2s; }
+  .cv-card:nth-child(3) { animation-delay: 0.3s; }
+
+  .cv-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), #58a6ff);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .cv-card:hover {
+    border-color: rgba(47,129,247,0.4);
+    background: var(--card-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(47,129,247,0.1);
+  }
+  .cv-card:hover::before { opacity: 1; }
+
+  /* Placeholder card */
+  .cv-card.placeholder {
+    border-style: dashed;
+    border-color: var(--border);
+    background: transparent;
+    cursor: default;
+    opacity: 0.5;
+  }
+  .cv-card.placeholder:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--border);
+    background: transparent;
+  }
+  .cv-card.placeholder::before { display: none; }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  .card-icon {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(47,129,247,0.2);
+  }
+  .card-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+  .badge-live {
+    background: rgba(63,185,80,0.12);
+    color: var(--green);
+    border: 1px solid rgba(63,185,80,0.25);
+  }
+  .badge-soon {
+    background: rgba(139,148,158,0.1);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .card-subtitle {
+    font-size: 12px;
+    color: var(--accent2);
+    font-weight: 500;
+    margin-bottom: 12px;
+    font-family: 'DM Mono', monospace;
+  }
+  .card-desc {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 18px;
+  }
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+  .card-tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+  }
+  .card-lang {
+    display: flex;
+    gap: 4px;
+  }
+  .lang-pip {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 7px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+  .card-arrow {
+    color: var(--accent2);
+    font-size: 16px;
+    transition: transform 0.2s;
+  }
+  .cv-card:hover .card-arrow { transform: translateX(4px); }
+
+  /* ── Add card ── */
+  .add-card {
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    opacity: 0.4;
+    min-height: 200px;
+    animation: fadeUp 0.7s ease 0.3s both;
+  }
+  .add-icon { font-size: 28px; }
+  .add-label {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.7s ease 0.4s both;
+  }
+  .footer a { color: var(--accent2); text-decoration: none; }
+  .footer-row { margin-bottom: 6px; }
+
+  /* ── Lang content ── */
+  [data-lang] { display: none; }
+  body.lang-en [data-lang="en"],
+  body.lang-vi [data-lang="vi"] { display: contents; }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  @media (max-width: 600px) {
+    .cv-grid { grid-template-columns: 1fr; }
+    .wrapper { padding: 60px 16px 60px; }
+  }
+</style>
+</head>
+<body class="lang-en">
+
+<div class="glow-orb"></div>
+
+<!-- Lang Toggle -->
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('vi')">VI</button>
+</div>
+
+<div class="wrapper">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">
+      <div class="dot-live"></div>
+      <span data-lang="en">CV Portfolio · 2026</span>
+      <span data-lang="vi">Hồ sơ CV · 2026</span>
+    </div>
+    <div class="hero-name">Thai Quoc Khuong</div>
+    <div class="hero-title">
+      <span data-lang="en">Senior Network Engineer · Network Manager · NetDevOps</span>
+      <span data-lang="vi">Kỹ sư Mạng Cao cấp · Trưởng bộ phận Mạng · NetDevOps</span>
+    </div>
+    <div class="hero-tags">
+      <span class="hero-tag">JNCIE-SP #3285</span>
+      <span class="hero-tag">PCNSE</span>
+      <span class="hero-tag">ACP-CA|SW|NS</span>
+      <span class="hero-tag">ITIL Foundation</span>
+      <span class="hero-tag">15+ yrs experience</span>
+    </div>
+    <div class="hero-contacts">
+      <span>📞 0945.192.199</span>
+      <a href="mailto:tqkhuong261@gmail.com">✉ tqkhuong261@gmail.com</a>
+      <a href="https://linkedin.com/in/khuong-thai-77a56b158" target="_blank">🔗 LinkedIn</a>
+      <span>📍
+        <span data-lang="en">Ho Chi Minh City, Vietnam</span>
+        <span data-lang="vi">TP. Hồ Chí Minh, Việt Nam</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- CV LIST -->
+  <div class="section-label">
+    <span data-lang="en">Select a CV version</span>
+    <span data-lang="vi">Chọn phiên bản CV</span>
+  </div>
+
+  <div class="cv-grid">
+
+    <!-- Card 1: General -->
+    <a class="cv-card" href="./general/">
+      <div class="card-top">
+        <div class="card-icon">🌐</div>
+        <span class="card-badge badge-live">● LIVE</span>
+      </div>
+      <div class="card-title">
+        <span data-lang="en">General CV</span>
+        <span data-lang="vi">CV Tổng quát</span>
+      </div>
+      <div class="card-subtitle">
+        <span data-lang="en">All-purpose · Enterprise & ISP</span>
+        <span data-lang="vi">Đa mục đích · Enterprise & ISP</span>
+      </div>
+      <div class="card-desc">
+        <span data-lang="en">Full career overview covering IP Core operations, Enterprise network management, NetDevOps automation, and team leadership across ISPs and system integrators.</span>
+        <span data-lang="vi">Tổng quan toàn bộ sự nghiệp: vận hành IP Core, quản lý mạng Enterprise, tự động hóa NetDevOps và lãnh đạo nhóm tại các ISP và đơn vị tích hợp hệ thống.</span>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag">IP Core</span>
+        <span class="card-tag">Enterprise LAN/WAN</span>
+        <span class="card-tag">NetDevOps</span>
+        <span class="card-tag">ITIL</span>
+        <span class="card-tag">HPE Aruba</span>
+        <span class="card-tag">Juniper</span>
+      </div>
+      <div class="card-footer">
+        <div class="card-lang">
+          <span class="lang-pip">EN</span>
+          <span class="lang-pip">VI</span>
+        </div>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- Card 2: VNPT-NIC -->
+    <a class="cv-card" href="./vnpt-nic/">
+      <div class="card-top">
+        <div class="card-icon">📡</div>
+        <span class="card-badge badge-live">● LIVE</span>
+      </div>
+      <div class="card-title">CV VNPT-NIC</div>
+      <div class="card-subtitle">
+        <span data-lang="en">Tailored · Telecom & ISP</span>
+        <span data-lang="vi">Định hướng · Viễn thông & ISP</span>
+      </div>
+      <div class="card-desc">
+        <span data-lang="en">Focused on Telco ecosystem expertise — IP/MPLS core network, Metro-E design, service delivery, and network modernization for large-scale ISP infrastructure.</span>
+        <span data-lang="vi">Tập trung vào hệ sinh thái Viễn thông — mạng lõi IP/MPLS, thiết kế Metro-E, triển khai dịch vụ và hiện đại hóa hạ tầng ISP quy mô lớn.</span>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag">IP/MPLS</span>
+        <span class="card-tag">Metro-E</span>
+        <span class="card-tag">BNG/BRAS</span>
+        <span class="card-tag">BGP</span>
+        <span class="card-tag">VoIP/SIP</span>
+        <span class="card-tag">22 provinces</span>
+      </div>
+      <div class="card-footer">
+        <div class="card-lang">
+          <span class="lang-pip">EN</span>
+          <span class="lang-pip">VI</span>
+        </div>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- Card 3: Placeholder — thêm sau -->
+    <div class="add-card">
+      <div class="add-icon">＋</div>
+      <div class="add-label">
+        <span data-lang="en">More CV versions<br>coming soon</span>
+        <span data-lang="vi">Các phiên bản CV khác<br>sẽ được bổ sung sau</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-row">
+      <span data-lang="en">Each CV opens with a built-in EN / VI language toggle.</span>
+      <span data-lang="vi">Mỗi CV có nút chuyển đổi ngôn ngữ EN / VI tích hợp sẵn.</span>
+    </div>
+    <div class="footer-row">
+      <a href="https://github.com/akeo261/KhuongTQ-CV" target="_blank">
+        <span data-lang="en">View source on GitHub</span>
+        <span data-lang="vi">Xem mã nguồn trên GitHub</span>
+      </a>
+      &nbsp;·&nbsp; Thai Quoc Khuong © 2026
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('active', b.textContent.toLowerCase() === lang);
+    });
+    document.documentElement.lang = lang;
+  }
+</script>
+</body>
+</html>
