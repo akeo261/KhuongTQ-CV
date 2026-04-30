@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thai Quoc Khuong – CV Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
+  /* :root {
     --bg: #0d1117;
     --surface: #161b22;
     --surface2: #1c2330;
@@ -20,6 +21,29 @@
     --tag-text: #58a6ff;
     --green: #3fb950;
     --card-hover: #1f2937;
+  } */
+  :root {
+    /* Core Backgrounds - Darker for depth */
+    --bg: #05070a;           /* Deep black-blue */
+    --surface: #0d1117;      /* Solid dark gray-blue */
+    --surface2: #161b22;     /* Lighter surface for interaction */
+    
+    /* Brand Colors - High Vibrancy */
+    --accent: #2f81f7;       /* Primary blue */
+    --accent2: #79c0ff;      /* Bright sky blue for links/highlights */
+    --accent-glow: rgba(47, 129, 247, 0.25);
+    
+    /* Text Colors - High Contrast (Sửa lỗi bị chìm) */
+    --text: #f0f6fc;         /* Near white for headings */
+    --text-muted: #afb8c1;   /* Medium gray for descriptions (Brighter than old version) */
+    --text-dim: #7d8590;     /* Dark gray for secondary info/meta */
+    
+    /* Borders & Accents */
+    --border: #30363d;       /* Standard border */
+    --border-bright: #444c56; /* Hover state border */
+    --tag-bg: rgba(56, 139, 253, 0.15);
+    --tag-text: #58a6ff;
+    --green: #3fb950;        /* Keep for live status */
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -100,7 +124,26 @@
     margin-bottom: 72px;
     animation: fadeUp 0.7s ease both;
   }
-
+  /* --- Hero Badges (Certs row) --- */
+  .hero-badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px; /* Reduced from 12px */
+    margin-top: 12px;
+    margin-bottom: 12px; /* Reduced space before contacts */
+  }
+  /* --- Hero Contacts --- */
+  .hero-contacts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 24px; 
+    font-size: 13px;
+    color: var(--text-muted);
+    /* Adjusted this to 40px to bring "Select a CV" closer */
+    margin-bottom: 40px; 
+  }
   .hero-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -121,8 +164,18 @@
     border-radius: 50%;
     animation: pulse 2s infinite;
   }
-
-  .hero-name {
+  /* --- Special Highlight for Elite Certs --- */
+  .badge-highlight {
+    /* Using a gold/amber theme for premium certifications */
+    background: rgba(242, 199, 68, 0.1) !important; 
+    border-color: #f2c744 !important; 
+    color: #f2c744 !important; 
+    font-weight: 600 !important;
+    /* Subtle glow to draw the eye */
+    box-shadow: 0 0 10px rgba(242, 199, 68, 0.15);
+  }
+  
+  /* .hero-name {
     font-family: 'Syne', sans-serif;
     font-size: clamp(30px, 7vw, 68px);
     font-weight: 800;
@@ -133,14 +186,43 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
+  } 
+ */  
 
-  .hero-title {
+  .hero-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(34px, 7vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 14px;
+
+  background: linear-gradient(
+    135deg,
+    #f0f6fc 10%,
+    #58a6ff 90%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  text-rendering: geometricPrecision;
+}
+
+  /* .hero-title {
     font-size: 14px;
     color: var(--text-muted);
     letter-spacing: 0.06em;
     margin-bottom: 20px;
     font-weight: 400;
+  } */
+  .hero-title {
+    font-size: 15px;
+    color: var(--accent2); /* Use bright blue instead of muted gray */
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+    font-weight: 500;
   }
 
   .hero-tags {
@@ -150,7 +232,7 @@
     gap: 8px;
     margin-bottom: 28px;
   }
-  .hero-tag {
+  /* .hero-tag {
     background: var(--surface2);
     border: 1px solid var(--border);
     border-radius: 4px;
@@ -158,8 +240,65 @@
     font-family: 'DM Mono', monospace;
     font-size: 10.5px;
     color: var(--text-muted);
+  } */
+  /* General style for all tags */
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    transition: all 0.3s ease;
   }
-
+  /* Special Highlight: Just brighter, no bold, no scale */
+  .tag-highlight {
+    /* Keep same background and border as others or slightly lighter */
+    background: rgba(255, 255, 255, 0.1) !important; 
+    border-color: var(--border-bright) !important;
+    /* Make text color pure white to be brighter than --text-dim */
+    color: #ffffff !important; 
+    /* Ensure weight and size match the rest */
+    font-weight: 400 !important; 
+    /* Subtle glow to make it "pop" without being bulky */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  }
+  /* --- Hero Contacts Section --- */
+  .hero-contacts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 24px; 
+    font-size: 13px;
+    color: var(--text-muted);
+    /* Reduce this margin to bring "Select a CV version" closer */
+    margin-bottom: 48px; 
+  }
+  .contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; 
+    line-height: 1;
+    text-decoration: none; /* Remove underline for link items */
+    color: inherit;
+  }
+  /* --- Forced Icon Synchronization --- */
+  .contact-item i, 
+  .contact-item svg {
+    /* Use !important to override default library styles */
+    width: 1em !important; 
+    height: 1em !important;
+    stroke-width: 2px !important;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -1px; /* Optical alignment */
+  }
+  /*
   .hero-contacts {
     display: flex;
     justify-content: center;
@@ -168,14 +307,51 @@
     font-size: 12.5px;
     color: var(--text-muted);
   }
-  .hero-contacts a {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s;
+  .contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
   }
-  .hero-contacts a:hover { color: var(--accent2); }
+  .contact-item i {
+    width: 8px;
+    height: 8px;
+    stroke-width: 1.5;
+    flex-shrink: 0;
 
+    position: relative;
+    top: 0.5px;
+  }
+  */
+  /* --- FontAwesome Adjustment --- */
+  .contact-item .fa-brands {
+    font-size: 1em !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* --- Section Label (Selection Divider) --- */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    /* text-transform: uppercase;
+    /* Switched to accent color to guide user's focus to action area */
+    color: var(--accent2); 
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px; /* Reduced space before cards */
+  }
+  /*
+  .contact-item .fa-brands {
+    font-size: 11px;
+    width: 11px;
+    text-align: center;
+    opacity: 0.9;
+  }
   /* ── Section label ── */
+  /*
   .section-label {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
@@ -187,6 +363,13 @@
     align-items: center;
     gap: 12px;
   }
+  */
+  .hero-contacts a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .hero-contacts a:hover { color: var(--accent2); }
   .section-label::after {
     content: '';
     flex: 1;
@@ -229,11 +412,18 @@
     opacity: 0;
     transition: opacity 0.25s;
   }
-  .cv-card:hover {
+  /* .cv-card:hover {
     border-color: rgba(47,129,247,0.4);
     background: var(--card-hover);
     transform: translateY(-3px);
     box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(47,129,247,0.1);
+  } */
+  .cv-card:hover {
+    border-color: var(--accent2);
+    background: var(--surface2);
+    transform: translateY(-4px);
+    /* Added a subtle glow effect */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px var(--accent-glow);
   }
   .cv-card:hover::before { opacity: 1; }
 
@@ -303,11 +493,18 @@
     margin-bottom: 12px;
     font-family: 'DM Mono', monospace;
   }
-  .card-desc {
+  /* .card-desc {
     font-size: 12.5px;
     color: var(--text-muted);
     line-height: 1.65;
     margin-bottom: 18px;
+  } */
+  .card-desc {
+    font-size: 13px;
+    color: var(--text-muted); /* New brighter gray */
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-weight: 400; /* Ensure font weight is sufficient */
   }
   .card-tags {
     display: flex;
@@ -405,6 +602,9 @@
     .wrapper { padding: 60px 16px 60px; }
   }
 </style>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body class="lang-en">
 
@@ -425,18 +625,30 @@
       <span data-lang="en">CV Portfolio · 2026</span>
       <span data-lang="vi">Hồ sơ CV · 2026</span>
     </div>
-    <div class="hero-name"> Khuong Thai </div>
+    <div class="hero-name"> 
+      <span data-lang="en"> Thai Quoc Khuong </span>
+      <span data-lang="vi"> Thái Quốc Khương </span>
+    </div>
     <div class="hero-title">
       <span data-lang="en">Senior Network Engineer · Network Manager · NetDevOps</span>
       <span data-lang="vi">Kỹ sư Mạng Cao cấp · Trưởng bộ phận Mạng · NetDevOps</span>
     </div>
-    <div class="hero-tags">
-      <span class="hero-tag">JNCIE-SP #3285</span>
+    <!-- <div class="hero-tags">
+      <span class="bage">JNCIE-SP #3285</span>
       <span class="hero-tag">PCNSE</span>
-      <span class="hero-tag">ACPx3 [CA|SW|NS]</span>
+      <span class="bage">ACPx3 [CA|SW|NS]</span>
+      <span class="hero-tag">ITIL Foundation</span>
+      <span class="hero-tag">15+ yrs experience</span>
+    </div> -->
+    <div class="hero-tags" style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
+      <!-- Highlighting JNCIE-SP and ACPx3 -->
+      <span class="hero-tag tag-highlight">JNCIE-SP #3285</span>
+      <span class="hero-tag">PCNSE</span>
+      <span class="hero-tag tag-highlight">ACPx3 [CA|SW|NS]</span>
       <span class="hero-tag">ITIL Foundation</span>
       <span class="hero-tag">15+ yrs experience</span>
     </div>
+    <!--
     <div class="hero-contacts">
       <span>📞 0945.192.199</span>
       <a href="mailto:tqkhuong261@gmail.com">✉ tqkhuong261@gmail.com</a>
@@ -446,7 +658,62 @@
         <span data-lang="vi">TP. Hồ Chí Minh, Việt Nam</span>
       </span>
     </div>
-  </div>
+    -->
+    
+    <!-- <div class="hero-contacts">
+      <span class="contact-item">
+        <i data-lucide="phone"></i>
+        0945.192.199
+      </span>
+
+      <a class="contact-item" href="mailto:tqkhuong261@gmail.com">
+        <i data-lucide="mail"></i>
+        tqkhuong261@gmail.com
+      </a>
+
+      <a class="contact-item"
+        href="https://linkedin.com/in/khuong-thai-77a56b158"
+        target="_blank">
+        <!-- <i data-lucide="phone"></i> 
+        <i class="fa-brands fa-linkedin-in"></i>
+        LinkedIn
+      </a>
+
+      <span class="contact-item"
+        href="https://maps.app.goo.gl/PSV2eeWJJhubXdHJ7"
+        target="_blank">
+        <i data-lucide="map-pin"></i>
+        Ho Chi Minh City, Vietnam
+    </div> -->
+    
+    <div class="hero-contacts">
+      <!-- Phone Contact -->
+      <span class="contact-item">
+        <i data-lucide="phone"></i>
+        0945.192.199
+      </span>
+
+      <!-- Email Contact -->
+      <a class="contact-item" href="mailto:tqkhuong261@gmail.com">
+        <i data-lucide="mail"></i>
+        tqkhuong261@gmail.com
+      </a>
+
+      <!-- Social Profile: LinkedIn -->
+      <a class="contact-item" href="https://linkedin.com/in/khuong-thai-77a56b158" target="_blank">
+        <i class="fa-brands fa-linkedin-in"></i>
+        LinkedIn/Khuong-Thai
+      </a>
+
+      <!-- Location Information with Multi-language support -->
+      <a class="contact-item"
+        href="https://maps.app.goo.gl/Cs6vD1YLczq8wTb59"
+        target="_blank">
+        <i data-lucide="map-pin"></i>
+        <span data-lang="en">HCMC, Vietnam</span>
+        <span data-lang="vi">TPHCM, Việt Nam</span>
+      </a>
+    </div>
 
   <!-- CV LIST -->
   <div class="section-label">
@@ -457,7 +724,7 @@
   <div class="cv-grid">
 
     <!-- Card 1: General -->
-    <a class="cv-card" href="./general/">
+    <a class="cv-card" href="./General/">
       <div class="card-top">
         <div class="card-icon">🌐</div>
         <span class="card-badge badge-live">● LIVE</span>
@@ -471,16 +738,19 @@
         <span data-lang="vi">Đa mục đích · Enterprise & ISP</span>
       </div>
       <div class="card-desc">
-        <span data-lang="en">Full career overview covering IP Core operations, Enterprise network management, NetDevOps automation, and team leadership across ISPs and system integrators.</span>
-        <span data-lang="vi">Tổng quan toàn bộ sự nghiệp: vận hành IP Core, quản lý mạng Enterprise, tự động hóa NetDevOps và lãnh đạo nhóm tại các ISP và đơn vị tích hợp hệ thống.</span>
+        <span data-lang="en">Full career overview covering IP Core operations, Enterprise network management, NetDevOps automation, and team leadership across ISPs and SI.</span>
+        <span data-lang="vi">Tổng quan sự nghiệp: vận hành IP Core, quản lý mạng SMB/Enterprise, tự động hóa NetDevOps và Quản lý đội ngũ tại các ISP/Telco và SI đơn vị tích hợp hệ thống.</span>
       </div>
       <div class="card-tags">
         <span class="card-tag">IP Core</span>
         <span class="card-tag">Enterprise LAN/WAN</span>
-        <span class="card-tag">NetDevOps</span>
-        <span class="card-tag">ITIL</span>
+        <span class="card-tag">Cisco</span>
         <span class="card-tag">HPE Aruba</span>
+        <span class="card-tag">Wireless</span>
         <span class="card-tag">Juniper</span>
+        <span class="card-tag">NAC</span>
+        <span class="card-tag">SD-WAN</span>
+        <span class="card-tag">NetDevOps</span>
       </div>
       <div class="card-footer">
         <div class="card-lang">
@@ -492,12 +762,12 @@
     </a>
 
     <!-- Card 2: VNPT-NIC -->
-    <a class="cv-card" href="./vnpt-nic/">
+    <a class="cv-card" href="./VNPT-NIC/">
       <div class="card-top">
         <div class="card-icon">📡</div>
         <span class="card-badge badge-live">● LIVE</span>
       </div>
-      <div class="card-title">CV VNPT-NIC</div>
+      <div class="card-title">VNPT-NIC CV</div>
       <div class="card-subtitle">
         <span data-lang="en">Tailored · Telecom & ISP</span>
         <span data-lang="vi">Định hướng · Viễn thông & ISP</span>
@@ -511,7 +781,10 @@
         <span class="card-tag">Metro-E</span>
         <span class="card-tag">BNG/BRAS</span>
         <span class="card-tag">BGP</span>
+        <span class="card-tag">MPLS & VPN</span>
         <span class="card-tag">VoIP/SIP</span>
+        <span class="card-tag">NetDevOps</span>
+        <span class="card-tag">Automation</span>
         <span class="card-tag">22 provinces</span>
       </div>
       <div class="card-footer">
@@ -524,13 +797,13 @@
     </a>
 
     <!-- Card 3: Placeholder — thêm sau -->
-    <div class="add-card">
+    <!-- <div class="add-card">
       <div class="add-icon">＋</div>
       <div class="add-label">
         <span data-lang="en">More CV versions<br>coming soon</span>
         <span data-lang="vi">Các phiên bản CV khác<br>sẽ được bổ sung sau</span>
       </div>
-    </div>
+    </div> -->
 
   </div>
 
@@ -559,6 +832,7 @@
     });
     document.documentElement.lang = lang;
   }
+  lucide.createIcons();
 </script>
 </body>
 </html>
