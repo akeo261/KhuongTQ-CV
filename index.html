@@ -191,7 +191,7 @@
 
   .hero-name {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(34px, 7vw, 64px);
+  font-size: clamp(34px, 7vw, 54px);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
@@ -548,6 +548,68 @@
   }
   .cv-card:hover .card-arrow { transform: translateX(4px); }
 
+  /* --- 1. Ép toàn trang nằm trong 1 màn hình và chống cuộn --- */
+  html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; 
+    background-color: #0d1117; /* Giữ nền tối cho chuyên nghiệp */
+  }
+
+  .portfolio-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* --- 2. Dòng ghi chú tinh tế (Không nền, chữ vàng trắng nhạt) --- */
+  .cv-disclaimer {
+    margin: 10px 0 20px 0;
+    padding: 0;
+    background: none; /* Tắt nền vàng */
+    border: none;
+    font-size: 12px;
+    color: #d1d5db; /* Màu xám trắng nhẹ */
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .cv-disclaimer strong {
+    color: #e3b341; /* Chữ "Note/Ghi chú" vàng nhạt để nhận diện */
+    font-weight: 500;
+  }
+
+  /* --- 3. ÉP CÁC CARD CV NGANG ĐỀU NHAU --- */
+  .cv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: stretch; /* Ép các card có độ cao bằng nhau */
+  }
+
+  .cv-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Đảm bảo card chiếm hết chiều cao grid */
+    text-decoration: none;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .card-desc {
+    flex-grow: 1; /* Đây là chìa khóa: Đẩy phần footer xuống đáy để các card đều nhau */
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #8b949e;
+  }
+
   /* ── Add card ── */
   .add-card {
     border: 1px dashed var(--border);
@@ -715,6 +777,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
       </a>
     </div>
 
+    <div class="cv-disclaimer">
+      <p data-lang="en">
+        <strong>Note:</strong> This portfolio is a personal development playground for static web architecture and UI/UX exploration.
+      </p>
+      <p data-lang="vi">
+        <strong>Ghi chú:</strong> Portfolio này là không gian thực hành cá nhân về kiến trúc web tĩnh và trải nghiệm giao diện (UI/UX).
+      </p>
+    </div>
+
   <!-- CV LIST -->
   <div class="section-label">
     <span data-lang="en">Select a CV version</span>
@@ -761,7 +832,41 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
       </div>
     </a>
 
-    <!-- Card 2: VNPT-NIC -->
+    <!-- Card 2: Placeholder — thêm sau -->
+    <a class="cv-card" href="./SMB/">
+      <div class="card-top">
+        <div class="card-icon">🏢</div>
+        <span class="card-badge badge-live">● LIVE</span>
+      </div>
+      <div class="card-title">
+        <span data-lang="en">SMB-Enterprise CV</span>
+        <span data-lang="vi">CV SMB/Enterprise</span>
+      </div>
+      <div class="card-subtitle">
+        <span data-lang="en">Focused · Enterprise & Security</span>
+        <span data-lang="vi">Trọng tâm · Doanh nghiệp & Bảo mật</span>
+      </div>
+      <div class="card-desc">
+        <span data-lang="en">Tailored for SMB/Enterprise environments with focus on Zero-Trust Security, Managed Services, and high-end HPE Aruba & Palo Alto solutions.</span>
+        <span data-lang="vi">Tối ưu cho môi trường Doanh nghiệp: Tập trung vào Bảo mật Zero-Trust, giải pháp Managed Services và hạ tầng cao cấp HPE Aruba & Palo Alto.</span>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag">HPE Aruba</span>
+        <span class="card-tag">Palo Alto</span>
+        <span class="card-tag">Zero Trust</span>
+        <span class="card-tag">MSSP</span>
+        <span class="card-tag">ClearPass</span>
+      </div>
+      <div class="card-footer">
+        <div class="card-lang">
+          <span class="lang-pip">EN</span>
+          <span class="lang-pip">VI</span>
+        </div>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- Card 3: VNPT-NIC -->
     <a class="cv-card" href="./VNPT-NIC/">
       <div class="card-top">
         <div class="card-icon">📡</div>
@@ -796,14 +901,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
       </div>
     </a>
 
-    <!-- Card 3: Placeholder — thêm sau -->
-    <!-- <div class="add-card">
-      <div class="add-icon">＋</div>
-      <div class="add-label">
-        <span data-lang="en">More CV versions<br>coming soon</span>
-        <span data-lang="vi">Các phiên bản CV khác<br>sẽ được bổ sung sau</span>
-      </div>
-    </div> -->
+    
 
   </div>
 
