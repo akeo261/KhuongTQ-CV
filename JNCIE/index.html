@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thai Quoc Khuong – JNCIE-SP #3285 · JNCIE-ENT #1073</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+<style>
+.hero{padding:34px 40px 22px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:-.01em}
+.hero p{color:var(--muted);font-size:13px;margin-top:4px}
+.wrap{padding:22px 40px 28px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{border:1px solid var(--line);border-radius:18px;padding:20px 22px}
+.card .no{font-size:34px;font-weight:800;color:var(--gold-t);line-height:1}
+.card .nm{font-size:16px;font-weight:800;margin:8px 0 2px}
+.card .sub{color:var(--muted);font-size:12.5px}
+.card.sp{background:linear-gradient(var(--g1),var(--paper))}.card.ent{background:linear-gradient(var(--g2),var(--paper))}.card.ent .no{color:var(--accent-d)}
+.path{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.path .tag{font-size:11px;padding:3px 12px}.path i{color:var(--soft);font-style:normal}
+.full{grid-column:1/-1}
+h3{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:800;margin-bottom:8px}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:6px 28px}
+</style>
+<script>try{if(localStorage.cvTheme==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script></head>
+<body>
+<div class="sheet">
+<div class="controls"><button class="ctrl-btn" id="themeBtn" onclick="toggleTheme()">Dark</button><a class="ctrl-btn" href="../">Portfolio</a></div>
+<div class="hero"><h1>Juniper Expert Certifications</h1><p>Thai Quoc Khuong · Senior Network Engineer · District 7, HCMC</p></div>
+<div class="wrap">
+ <div class="card sp"><div class="no">#3285</div><div class="nm">JNCIE-SP</div><div class="sub">Juniper Networks Certified Expert, Service Provider Routing &amp; Switching · 2025</div></div>
+ <div class="card ent"><div class="no">#1073</div><div class="nm">JNCIE-ENT</div><div class="sub">Juniper Networks Certified Expert, Enterprise Routing &amp; Switching · 2026</div></div>
+ <div class="card full"><h3>Juniper certification path</h3>
+  <div class="path"><span class="tag">JNCIP-ENT · 2019</span><i>→</i><span class="tag">JNCIP-SP · 2020</span><i>→</i><span class="tag fit">JNCIE-SP · 2025</span><i>→</i><span class="tag fit">JNCIE-ENT · 2026</span></div></div>
+ <div class="card full"><h3>Where I have used Juniper in my work</h3>
+  <ul class="bullet-list cols2">
+   <li><strong>Juniper TAC contact (SVTECH, 2019–2023):</strong> analysed bugs, handled RMAs and tuned performance for ISP and enterprise customers.</li>
+   <li><strong>HLD/LLD design (2020):</strong> Juniper MX960, MX104, ACX5048, EX3400 and SRX340 in an integrated enterprise network.</li>
+   <li><strong>QTSC Route Reflector upgrade (2021):</strong> Cisco 7606 pair replaced with Juniper MX960.</li>
+   <li><strong>VNPT Metro modernisation (2020):</strong> five provinces migrated from Huawei NE40E/X8A to Juniper MX960/MX2020.</li>
+   <li><strong>Automation:</strong> ZTP for Juniper EX switches at Viettel IDC; Ansible tools for configuration collection.</li>
+   <li><strong>IP Core operations (VTN, 2010–2015):</strong> Juniper MX960 and T1600 in the VN2 core across 22 provinces.</li>
+  </ul></div>
+</div>
+</div>
+<script src="../assets/fit.js"></script>
+</body>
+</html>
