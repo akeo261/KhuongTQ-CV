@@ -112,3 +112,25 @@ html[data-theme="dark"] .tg.o{background:#3a2610;color:#ffb066}html[data-theme="
 .foot{text-align:center;color:var(--soft);font-size:11px;margin-top:26px}
 @media(max-width:1000px){.cards{grid-template-columns:1fr 1fr}.stats5{grid-template-columns:repeat(3,1fr)}.charts{grid-template-columns:1fr}}
 @media(max-width:700px){.hero2{flex-direction:column;align-items:flex-start;padding:22px}.hero2 .exp-badges{margin-left:0;width:100%}.cards{grid-template-columns:1fr}.stats5{grid-template-columns:1fr 1fr}.hero2 h1{font-size:28px}}
+
+/* --- compact home v4 --- */
+html.embed .controls{display:none}html.embed body{height:auto!important;overflow:hidden}html.embed .a4{position:static!important;margin:0!important;transform:none!important;box-shadow:none}
+.home{padding:12px 28px 28px}
+.home .controls{position:static;margin:0 0 10px auto;width:max-content;box-shadow:none}
+.hero2{padding:22px 30px;gap:22px}.av{width:76px;height:76px;font-size:26px}.hero2 h1{font-size:32px}.hero2 .role{font-size:14px}.cts{margin-top:10px}
+.stats5{gap:10px;margin:10px 0 16px}.s5{padding:8px 12px;border-radius:14px;gap:9px}
+.ic{width:30px;height:30px;border-radius:10px}.ic svg{width:16px;height:16px}
+.s5 b{font-size:16px}.s5 div>span{font-size:10px}
+.home .lbl{margin:0 0 9px}
+.cards{gap:12px;margin-bottom:18px}
+.card{--c:var(--blue);padding:12px 12px 14px;border-radius:18px;border-top:4px solid var(--c);position:relative}
+.card:hover{border-color:var(--c);box-shadow:0 12px 30px rgba(15,39,71,.16)}
+.thumb{height:150px;overflow:hidden;border-radius:10px;border:1px solid var(--line);background:var(--paper);margin-bottom:10px;box-shadow:0 3px 10px rgba(15,39,71,.10)}
+.thumb iframe{width:794px;height:520px;border:0;transform:scale(.29);transform-origin:top left;pointer-events:none;display:block}
+.card h2{font-size:14.5px}.card .s{color:var(--c);margin:2px 0 4px}.card p{font-size:11.5px;margin-bottom:10px;flex:0 0 auto}
+.open{margin-top:auto;text-align:center;background:var(--c);color:#fff;font-weight:700;font-size:12px;border-radius:99px;padding:6px 0;transition:.2s}
+.card:hover .open{letter-spacing:.03em}
+@media(max-width:700px){.thumb{height:170px}}
+.cards{grid-template-columns:repeat(4,minmax(0,1fr))}.card{min-width:0}.thumb{width:100%}
+@media(max-width:1000px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.cards{grid-template-columns:minmax(0,1fr)}}
