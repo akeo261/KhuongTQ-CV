@@ -1,59 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thai Quoc Khuong – CV Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/theme.css">
-<style>
-.hero{text-align:center;padding:40px 40px 18px}
-.hero h1{font-size:40px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
-.hero .t{color:var(--accent);font-weight:700;font-size:15px;margin-top:6px}
-.hero .header-badges{justify-content:center;margin-top:12px}
-.hero .contacts{justify-content:center;margin-top:12px;font-size:12.5px}
-.lbl{text-align:center;color:var(--soft);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin:14px 0 12px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 40px 18px}
-.card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;padding:18px 20px;transition:.2s}
-.card:hover{border-color:var(--accent);background:var(--hov);transform:translateY(-2px)}
-.card h2{font-size:16px;font-weight:800}.card .s{color:var(--accent);font-weight:700;font-size:11.5px;margin:2px 0 8px}
-.card p{color:var(--muted);flex:1;margin-bottom:10px}.card .skill-tags{margin-bottom:10px}
-.card .go{color:var(--accent);font-weight:800;text-align:right}
-.card.new .s::after{content:' · NEW';color:var(--green)}
-.foot{text-align:center;color:var(--soft);font-size:11px;padding:4px 0 22px}
-.foot a{color:var(--accent)}
-@media(max-width:899px){.grid{grid-template-columns:1fr;padding:0 16px 16px}.hero{padding:24px 16px 10px}.hero h1{font-size:28px}}
-</style>
-<script>try{if(localStorage.cvTheme==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script></head>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thai Quoc Khuong – CV Portfolio</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css"><script>try{if(localStorage.cvTheme==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script></head>
 <body class="lang-en">
-<div class="sheet">
-<div class="controls"><button class="ctrl-btn" id="themeBtn" onclick="toggleTheme()">Dark</button><div class="lang-toggle"><button class="lang-btn active" onclick="setLang('en')">EN</button><button class="lang-btn" onclick="setLang('vi')">VI</button></div></div>
-<div class="hero">
- <h1><span data-lang="en">Thai Quoc Khuong</span><span data-lang="vi">Thái Quốc Khương</span></h1>
- <div class="t"><span data-lang="en">Senior Network Engineer · Network Manager · NetDevOps</span><span data-lang="vi">Kỹ sư Mạng Cao cấp · Trưởng bộ phận Mạng · NetDevOps</span></div>
- <div class="header-badges"><span>JNCIE-SP #3285</span><span>JNCIE-ENT #1073</span><span>PCNSE</span><span>ACP x3 [CA|SW|NS]</span><span>ITIL Foundation</span><span>15+ yrs</span></div>
- <div class="contacts"><span>0945.192.199</span><a href="mailto:tqkhuong261@gmail.com">tqkhuong261@gmail.com</a><a href="https://linkedin.com/in/khuong-thai-77a56b158" target="_blank">LinkedIn / Khuong-Thai</a><span><span data-lang="en">District 7, HCMC</span><span data-lang="vi">Quận 7, TP.HCM</span></span></div>
+<div class="controls"><button class="cb on" data-l="en" onclick="setLang('en')">EN</button><button class="cb" data-l="vi" onclick="setLang('vi')">VI</button><button class="cb" id="themeBtn" onclick="toggleTheme()">Dark</button></div>
+<div class="home">
+ <div class="hero"><h1><span data-lang="en">Thai Quoc Khuong</span><span data-lang="vi">Thái Quốc Khương</span></h1>
+  <div class="role"><span data-lang="en">Senior Network Engineer · Network Manager · NetDevOps</span><span data-lang="vi">Kỹ sư Mạng Cao cấp · Trưởng bộ phận Mạng · NetDevOps</span></div>
+  <div class="bd"><span class="x">JNCIE-SP #3285</span><span class="e">JNCIE-ENT #1073</span><span>Aruba ACP x3</span><span>PCNSE</span><span>ITIL Foundation</span><span>15+ yrs</span></div>
+  <div class="ct"><span>0945.192.199</span><a href="mailto:tqkhuong261@gmail.com">tqkhuong261@gmail.com</a><a href="https://linkedin.com/in/khuong-thai-77a56b158" target="_blank">LinkedIn</a><span>District 7, HCMC</span></div></div>
+ <div class="lbl"><span data-lang="en">Select a CV version</span><span data-lang="vi">Chọn phiên bản CV</span></div>
+ <div class="cards">
+  <a class="card" href="./General/"><h2>General CV</h2><div class="s">Enterprise · ISP · Managed Services</div><p><span data-lang="en">Full career overview with certification and career charts: JNCIE x2, HPE Aruba, managed services, IP Core.</span><span data-lang="vi">Tổng quan sự nghiệp kèm biểu đồ chứng chỉ và lộ trình: JNCIE x2, HPE Aruba, managed services, IP Core.</span></p><div class="go">→</div></a>
+  <a class="card o" href="./SMB/"><h2>Enterprise &amp; Managed Services CV</h2><div class="s">HPE Aruba · ITIL/SLA · Operations</div><p><span data-lang="en">Focus on Aruba Wi-Fi/NAC, large-site operations, ITIL and SLA, with a transparent “currently learning” note.</span><span data-lang="vi">Tập trung Aruba Wi-Fi/NAC, vận hành site lớn, ITIL/SLA, kèm ghi chú “đang học” minh bạch.</span></p><div class="go">→</div></a>
+  <a class="card i" href="./VNPT-NIC/"><h2>Carrier / ISP CV (VNPT-NIC)</h2><div class="s">IP/MPLS · Metro-E · JNCIE-SP</div><p><span data-lang="en">IP Core and Metro operations, Juniper migrations and NetDevOps tooling at ISP scale.</span><span data-lang="vi">Vận hành IP Core/Metro, di chuyển hạ tầng Juniper và công cụ NetDevOps quy mô ISP.</span></p><div class="go">→</div></a>
+  <a class="card t" href="./RMIT/"><h2>RMIT Vietnam CV</h2><div class="s">Network Engineer · JR51638 <span class="new">· NEW</span></div><p><span data-lang="en">Tailored to the RMIT posting: each requirement mapped to real experience, no overstatement.</span><span data-lang="vi">Soạn theo tin tuyển dụng RMIT: từng yêu cầu đối chiếu với kinh nghiệm thật, không nói quá.</span></p><div class="go">→</div></a>
+ </div>
+ <div class="foot"><a href="https://github.com/akeo261/KhuongTQ-CV" target="_blank">GitHub</a> · Thai Quoc Khuong © 2026</div>
 </div>
-<div class="lbl"><span data-lang="en">Select a CV version</span><span data-lang="vi">Chọn phiên bản CV</span></div>
-<div class="grid">
- <a class="card" href="./General/"><h2><span data-lang="en">General CV</span><span data-lang="vi">CV Tổng quát</span></h2><div class="s">Enterprise &amp; ISP · EN / VI</div>
-  <p><span data-lang="en">Full career overview: IP Core, enterprise networks, NetDevOps and team leadership.</span><span data-lang="vi">Tổng quan sự nghiệp: IP Core, mạng doanh nghiệp, NetDevOps và quản lý đội ngũ.</span></p>
-  <div class="skill-tags"><span class="tag">IP Core</span><span class="tag">Enterprise LAN/WAN</span><span class="tag">HPE Aruba</span><span class="tag">Juniper</span><span class="tag">NetDevOps</span></div><div class="go">→</div></a>
- <a class="card" href="./SMB/"><h2>SMB-Enterprise CV</h2><div class="s">Enterprise &amp; Security · EN</div>
-  <p><span data-lang="en">Enterprise operations, ITIL/SLA, Wi-Fi and NAC, with a transparent “currently learning” list.</span><span data-lang="vi">Vận hành doanh nghiệp, ITIL/SLA, Wi-Fi và NAC, kèm danh sách “đang học” minh bạch.</span></p>
-  <div class="skill-tags"><span class="tag">HPE Aruba</span><span class="tag">ClearPass</span><span class="tag">ITIL</span><span class="tag">PRTG</span></div><div class="go">→</div></a>
- <a class="card" href="./VNPT-NIC/"><h2>VNPT-NIC CV</h2><div class="s">Telecom &amp; ISP · EN / VI</div>
-  <p><span data-lang="en">IP/MPLS core, Metro-E, service delivery and network modernisation at ISP scale.</span><span data-lang="vi">Mạng lõi IP/MPLS, Metro-E, triển khai dịch vụ và hiện đại hóa hạ tầng quy mô ISP.</span></p>
-  <div class="skill-tags"><span class="tag">IP/MPLS</span><span class="tag">Metro-E</span><span class="tag">BGP</span><span class="tag">BNG/BRAS</span></div><div class="go">→</div></a>
- <a class="card new" href="./RMIT/"><h2>RMIT Vietnam CV</h2><div class="s">Network Engineer · EN</div>
-  <p><span data-lang="en">Tailored to the RMIT Network Engineer posting (JR51638); every line comes from my real work history.</span><span data-lang="vi">Soạn theo tin tuyển dụng Network Engineer của RMIT (JR51638); mọi nội dung đều từ kinh nghiệm thực tế.</span></p>
-  <div class="skill-tags"><span class="tag">Wired &amp; Wi-Fi</span><span class="tag">Data centre ops</span><span class="tag">ITIL</span></div><div class="go">→</div></a>
- <a class="card new" href="./JNCIE/"><h2>JNCIE</h2><div class="s">SP #3285 · ENT #1073</div>
-  <p><span data-lang="en">Juniper Expert certifications, certification path and where I used Juniper in my work.</span><span data-lang="vi">Chứng chỉ Juniper Expert, lộ trình chứng chỉ và các dự án thực tế dùng Juniper.</span></p>
-  <div class="skill-tags"><span class="tag">JNCIE-SP</span><span class="tag">JNCIE-ENT</span><span class="tag">Juniper</span></div><div class="go">→</div></a>
-</div>
-<div class="foot"><a href="https://github.com/akeo261/KhuongTQ-CV" target="_blank">GitHub</a> · Thai Quoc Khuong © 2026</div>
-</div>
-<script>function setLang(l){document.body.className='lang-'+l;document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.textContent.toLowerCase()===l)});document.documentElement.lang=l;window.fitSheet&&fitSheet();}</script>
-<script src="assets/fit.js"></script>
-</body>
-</html>
+<script src="assets/site.js"></script></body></html>
