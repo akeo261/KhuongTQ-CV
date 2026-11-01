@@ -10,7 +10,8 @@
     s.style.left=Math.max(0,(innerWidth-W*k)/2)+'px';s.style.top=(top+44)+'px';
     document.body.style.height=(s.offsetHeight*k+top+44+30)+'px';
   }
-  window.fitSheet=fit;addEventListener('resize',fit);addEventListener('load',fit);
+  function zoomHome(){var h=document.querySelector('.home');if(!h)return;var k=innerWidth<760?1:Math.max(1,Math.min(innerWidth/1300,2.2));h.style.zoom=k;var c=document.querySelector('.controls');if(c)c.style.zoom=k;}
+  window.fitSheet=fit;addEventListener('resize',zoomHome);addEventListener('load',zoomHome);document.addEventListener('DOMContentLoaded',zoomHome);addEventListener('resize',fit);addEventListener('load',fit);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
   document.addEventListener('DOMContentLoaded',function(){fit();var b=document.getElementById('themeBtn');if(b&&root.dataset.theme==='dark')b.textContent='Light';});
   window.toggleTheme=function(){var d=root,dk=d.dataset.theme!=='dark';if(dk)d.dataset.theme='dark';else delete d.dataset.theme;
